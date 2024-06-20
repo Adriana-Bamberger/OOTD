@@ -5,22 +5,22 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import ClothingScreen from '@/app/wardrobe'
 
 const TabBar = ({ state, descriptors, navigation }) => {
-  const icons = {
-    index: (props) => (
-      <AntDesign name="Login" size={26} color={'#aaa'} {...props} />
-    ),
-    Feed: (props) => (
-      <MaterialIcons name="post-add" size={26} color={'#aaa'} {...props} />
-    ),
-    ClothingScreen: (props) => (
-      <MaterialCommunityIcons
-        name="dresser-outline"
-        size={26}
-        color={'#aaa'}
-        {...props}
-      />
-    ),
-  }
+  // const icons = {
+  //   index: (props) => (
+  //     <AntDesign name="Login" size={26} color={'#aaa'} {...props} />
+  //   ),
+  //   Feed: (props) => (
+  //     <MaterialIcons name="post-add" size={26} color={'#aaa'} {...props} />
+  //   ),
+  //   ClothingScreen: (props) => (
+  //     <MaterialCommunityIcons
+  //       name="dresser-outline"
+  //       size={26}
+  //       color={'#aaa'}
+  //       {...props}
+  //     />
+  //   ),
+  // }
   return (
     <View style={styles.tabbar}>
       {state.routes.map((route, index) => {
@@ -66,9 +66,9 @@ const TabBar = ({ state, descriptors, navigation }) => {
             onPress={onPress}
             onLongPress={onLongPress}
           >
-            {icons[route.name]({
+            {/* {icons[route.name]({
               color: isFocused ? '#000' : '#aaa',
-            })}
+            })} */}
             <Text style={{ color: isFocused ? '#000' : '#aaa' }}>{label}</Text>
           </TouchableOpacity>
         )
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    gap: 4,
   },
 })
 export default TabBar
