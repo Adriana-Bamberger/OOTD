@@ -3,13 +3,14 @@ import { StatusBar } from 'expo-status-bar'
 import { TabBarIcon } from '@/components/navigation/TabBarIcon'
 import { getDatabase, ref, set } from 'firebase/database'
 import ClothingScreen from './wardrobe'
+import NavBar from '../components/TabBar'
 
 export default function Feed() {
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
         <Text> FEED </Text>
-        <ClothingScreen userId={1} />
+        {/* <ClothingScreen userId={1} /> */}
       </View>
       <StatusBar style="auto" />
     </View>
