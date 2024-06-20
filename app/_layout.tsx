@@ -26,5 +26,10 @@ export default function RootLayout() {
       />
       {/* Down here we will need to add one here for the profile once we ahve the profile branch. */}
     </Tabs>
+    // <Stack>
+    //   <Stack.Screen name="index" />
+    //   <Stack.Screen name="editprofile" />
+    //   <Stack.Screen name="wardrobe" />
+    // </Stack>
   )
 }

@@ -4,13 +4,14 @@ import { TabBarIcon } from '@/components/navigation/TabBarIcon'
 import { getDatabase, ref, set } from 'firebase/database'
 import ClothingScreen from './wardrobe'
 import NavBar from '../components/TabBar'
+import UpdateProfile from '../components/Profile/UpdateProfile'
 
-export default function Feed() {
+export default function Profile() {
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <Text> FEED </Text>
-        {/* <ClothingScreen userId={1} /> */}
+        <Text style={styles.profile}> EDIT PROFILE </Text>
+        <UpdateProfile userId={'vin'} />
       </View>
       <StatusBar style="auto" />
     </View>
@@ -36,5 +37,8 @@ const styles = StyleSheet.create({
   footerContainer: {
     flex: 1 / 3,
     alignItems: 'center',
+  },
+  profile: {
+    textAlign: 'center',
   },
 })

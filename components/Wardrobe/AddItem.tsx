@@ -1,22 +1,24 @@
 import { useState } from 'react'
-import { View, TextInput, Button, Alert } from 'react-native'
-import database from '../firebaseConfig'
+import { View, TextInput, Button, Alert, Text } from 'react-native'
+import database from '../../firebaseConfig'
 import { ref, push, set } from 'firebase/database'
 
 interface ClothingItem {
   name: string
-  color: string
-  size: string
+  type: string
+  description: string
+  image: string
 }
 
 export default function AddClothingItem({ userId }: { userId: string }) {
   const [itemName, setItemName] = useState('')
-  const [color, setColor] = useState('')
-  const [size, setSize] = useState('')
+  const [description, setColor] = useState('')
+  const [image, setImage] = useState('')
+  const [type, setType] = useState('')
 
   const handleAddItem = () => {
     // Reference to the database path for the user's clothing items under 'tops'
-    const dbRef = ref(database, `users/${userId}/clothing/tops`)
+    const dbRef = ref(database, `users/${userId}/clothing/${type}`)
 
     // Generate a new key for the new item
     const newItemRef = push(dbRef)
@@ -24,8 +26,9 @@ export default function AddClothingItem({ userId }: { userId: string }) {
     // Create an object with the new item's data
     const newItem: ClothingItem = {
       name: itemName,
-      color: color,
-      size: size,
+      type: type,
+      description: description,
+      image: image,
     }
 
     // Save the new item to Firebase
@@ -35,7 +38,7 @@ export default function AddClothingItem({ userId }: { userId: string }) {
         Alert.alert('Success', 'New clothing item added successfully!')
         setItemName('')
         setColor('')
-        setSize('')
+        setType('')
       })
       .catch((error) => {
         console.error('Error adding clothing item:', error)
@@ -52,8 +55,10 @@ export default function AddClothingItem({ userId }: { userId: string }) {
         value={itemName}
         onChangeText={(text) => setItemName(text)}
         placeholder="Enter item name"
+        placeholderTextColor="darkgray"
         style={{
           height: 40,
+          width: 220,
           borderColor: 'gray',
           borderWidth: 1,
           paddingHorizontal: 10,
@@ -61,29 +66,29 @@ export default function AddClothingItem({ userId }: { userId: string }) {
         }}
       />
       <TextInput
-        value={color}
+        value={description}
         onChangeText={(text) => setColor(text)}
-        placeholder="Enter color"
+        placeholder="Enter Description"
+        placeholderTextColor="darkgray"
+        multiline={true}
         style={{
-          height: 40,
+          height: 100,
+          width: 220,
           borderColor: 'gray',
           borderWidth: 1,
           paddingHorizontal: 10,
           margin: 10,
         }}
       />
-      <TextInput
-        value={size}
-        onChangeText={(text) => setSize(text)}
-        placeholder="Enter size"
-        style={{
-          height: 40,
-          borderColor: 'gray',
-          borderWidth: 1,
-          paddingHorizontal: 10,
-          margin: 10,
-        }}
-      />
+      <Text> {type} </Text>
+      <View>
+        <Button title="Hat" onPress={() => setType('hats')} />
+        <Button title="Top" onPress={() => setType('tops')} />
+        <Button title="Jacket" onPress={() => setType('jackets')} />
+        <Button title="Bottom" onPress={() => setType('bottoms')} />
+        <Button title="Shoes" onPress={() => setType('shoes')} />
+      </View>
+
       <Button title="Add Item" onPress={handleAddItem} />
     </View>
   )
