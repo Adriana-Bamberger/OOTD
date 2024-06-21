@@ -4,8 +4,8 @@ const StackLayout = () => {
   return (
     <Stack>
       <Stack.Screen name="index" />
-      <Stack.Screen name="editprofile" />
-      <Stack.Screen name="wardrobe" />
+      {/* <Stack.Screen name="editprofile" /> */}
+      {/* <Stack.Screen name="wardrobe" /> */}
     </Stack>
   )
 }

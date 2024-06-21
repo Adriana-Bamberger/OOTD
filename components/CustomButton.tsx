@@ -9,7 +9,17 @@ type Props = {
 }
 
 export default function CustomButton({ label, theme }: Props) {
-  if (theme === 'login') {
+  if (theme === 'tohome') {
+    return (
+      <Link href="/profile">
+        <View style={[styles.buttonContainer]}>
+          <View style={[styles.button]}>
+            <Text style={[styles.buttonLabel]}>{label}</Text>
+          </View>
+        </View>
+      </Link>
+    )
+  } else if (theme === 'login') {
     return (
       <Link href="/login">
         <View style={[styles.buttonContainer]}>

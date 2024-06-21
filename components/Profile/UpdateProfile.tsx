@@ -1,7 +1,11 @@
 import { View } from 'react-native'
-import EditProfile from '@/components/Profile/EditProfile'
+import EditProfile from '@/components/Profile/StyleProfile'
 
-export default function UpdateProfile({ userId }) {
+type Props = {
+  userId: string
+}
+
+export default function UpdateProfile({ userId }: Props) {
   return (
     <View
       style={{

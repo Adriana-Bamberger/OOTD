@@ -1,3 +1,4 @@
+import CustomButton from '@/components/CustomButton'
 import React, { useState } from 'react'
 import {
   View,
@@ -47,6 +48,7 @@ const LoginPage = () => {
           <TouchableOpacity style={styles.button} onPress={handleLogin}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
+          <CustomButton theme="tohome" label="test" />
         </View>
       </View>
     </TouchableWithoutFeedback>
