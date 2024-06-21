@@ -47,9 +47,9 @@ export default function App() {
   }
 
   return (
-    <View style={themeContainerStyle}>
+    <View style={[themeContainerStyle, styles.container]}>
       {isDark}
-      <View style={styles.imageContainer}>
+      <View style={[styles.imageContainer, themeContainerStyle]}>
         {/* Use Animated.Text for the text that will be animated */}
         <Animated.Text
           style={[styles.text, themeTextStyle, { opacity: fadeAnim }]}
@@ -57,7 +57,7 @@ export default function App() {
           OOTD.
         </Animated.Text>
       </View>
-      <View style={styles.footerContainer}>
+      <View style={[styles.footerContainer, themeContainerStyle]}>
         <CustomButton label="LOGIN" theme="login" />
         <CustomButton label="SIGNUP " theme="temp" />
       </View>
@@ -83,13 +83,13 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   lightContainer: {
-    backgroundColor: '#d0d0c0',
+    backgroundColor: '#fff',
   },
   darkContainer: {
     backgroundColor: '#242c40',
   },
   lightThemeText: {
-    color: '#242c40',
+    color: '#000',
   },
   darkThemeText: {
     color: '#d0d0c0',
