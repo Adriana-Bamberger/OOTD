@@ -17,6 +17,7 @@ import {
 import firebase from '../../firebaseConfig'
 import { ref, set, get } from 'firebase/database'
 import ColourMode from '@/constants/ColourMode'
+import SetTheme from '@/constants/ColourMode'
 
 interface UserDetails {
   firstName: string
@@ -114,7 +115,7 @@ export default function EditProfile({ userId }: { userId: string }) {
           <Text style={styles.addButtonText}>Save Profile</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
-      <ColourMode />
+      <SetTheme />
     </ScrollView>
   )
 }

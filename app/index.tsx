@@ -1,12 +1,31 @@
-import React, { useEffect, useRef } from 'react'
-import { StyleSheet, Text, View, Animated } from 'react-native'
+import React, { useEffect, useRef, useState } from 'react'
+import {
+  StyleSheet,
+  Text,
+  View,
+  Animated,
+  useColorScheme,
+  Switch,
+} from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import CustomButton from '@/components/CustomButton'
 import { useFonts } from 'expo-font' // Importing expo-font for custom fonts
+import {
+  ThemeProvider,
+  DarkTheme,
+  DefaultTheme,
+  useTheme,
+} from '@react-navigation/native'
 
 const logo = require('../assets/images/ootd2.png')
 
 export default function App() {
+  const [isDark, setIsDark] = useState(false)
+
+  const themeTextStyle = !isDark ? styles.lightThemeText : styles.darkThemeText
+  const themeContainerStyle = !isDark
+    ? styles.lightContainer
+    : styles.darkContainer
   let [fontsLoaded] = useFonts({
     'TYPOGRAPH-PRO-Semi-Bold': require('../assets/fonts/TYPOGRAPH-PRO-Semi-Bold.ttf'),
   })
@@ -28,10 +47,13 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={themeContainerStyle}>
+      {isDark}
       <View style={styles.imageContainer}>
         {/* Use Animated.Text for the text that will be animated */}
-        <Animated.Text style={[styles.text, { opacity: fadeAnim }]}>
+        <Animated.Text
+          style={[styles.text, themeTextStyle, { opacity: fadeAnim }]}
+        >
           OOTD.
         </Animated.Text>
       </View>
@@ -40,6 +62,10 @@ export default function App() {
         <CustomButton label="SIGNUP " theme="temp" />
       </View>
       <StatusBar style="auto" />
+      <Switch
+        value={isDark}
+        onValueChange={(value) => setIsDark(value)}
+      ></Switch>
     </View>
   )
 }
@@ -47,8 +73,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
     fontFamily: 'TYPOGRAPH-PRO-Semi-Bold',
@@ -56,7 +82,18 @@ const styles = StyleSheet.create({
     marginTop: 250,
     paddingTop: 20,
   },
-
+  lightContainer: {
+    backgroundColor: '#d0d0c0',
+  },
+  darkContainer: {
+    backgroundColor: '#242c40',
+  },
+  lightThemeText: {
+    color: '#242c40',
+  },
+  darkThemeText: {
+    color: '#d0d0c0',
+  },
   imageContainer: {
     flex: 1,
     marginTop: 20,
