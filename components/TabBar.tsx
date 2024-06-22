@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
 import { MaterialIcons } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import ClothingScreen from '@/app/wardrobe'
+import ClothingScreen from '@/app/editWardrobe'
 
 const TabBar = ({ state, descriptors, navigation }) => {
   // const icons = {

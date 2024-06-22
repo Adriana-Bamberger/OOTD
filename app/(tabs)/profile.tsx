@@ -1,4 +1,13 @@
-import { ScrollView, StyleSheet, Text, View, Image } from 'react-native'
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Button,
+  TouchableOpacity,
+  Alert,
+} from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import ProfileName from '@/components/Profile/Username'
 import ProfileBio from '@/components/Profile/Bio'
@@ -6,8 +15,13 @@ import ProfilePicture from '@/components/Profile/ProfilePicture'
 import ProfileWardrobe from '@/components/Profile/Wardrobe'
 import React from 'react'
 import ShowUserProfile from '@/components/Profile/UserProfile'
+import EditProfile from '../editProfile'
 
-export default function profilePage() {
+export default function ProfilePage() {
+  function handlepres() {
+    return <EditProfile />
+  }
+
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -17,8 +31,11 @@ export default function profilePage() {
           <ProfileBio /> */}
           <ShowUserProfile />
           <View style={styles.separator} />
-          <ProfileWardrobe />
+          <View></View>
+
+          <Button title="edit profile" onPress={handlepress} />
         </View>
+        <ProfileWardrobe />
 
         <StatusBar style="auto" />
       </View>
@@ -56,5 +73,34 @@ const styles = StyleSheet.create({
   },
   bio: {
     textAlign: 'center',
+  },
+  button: {
+    padding: 10,
+    backgroundColor: '#007bff',
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+  },
+  container2: {
+    flex: 1,
+    justifyContent: 'center',
+    marginHorizontal: 16,
+  },
+  title: {
+    textAlign: 'center',
+    marginVertical: 8,
+  },
+  fixToText: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  separator2: {
+    marginVertical: 8,
+    borderBottomColor: '#737373',
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
 })

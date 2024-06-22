@@ -9,7 +9,7 @@ import {
 import { StatusBar } from 'expo-status-bar'
 import UpdateProfile from '@/components/Profile/UpdateProfile'
 
-export default function Profile() {
+export default function EditProfile() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>

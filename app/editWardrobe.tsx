@@ -2,7 +2,8 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import AddClothingItem from '@/components/Wardrobe/AddItems'
 
-export default function Wardrobe() {
+export default function EditWardrobe() {
+  
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
