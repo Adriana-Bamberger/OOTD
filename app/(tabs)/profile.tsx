@@ -18,7 +18,7 @@ import ShowUserProfile from '@/components/Profile/UserProfile'
 import EditProfile from '../editProfile'
 
 export default function ProfilePage() {
-  function handlepres() {
+  function handlepress() {
     return <EditProfile />
   }
 
