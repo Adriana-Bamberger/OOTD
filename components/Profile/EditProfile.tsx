@@ -16,8 +16,7 @@ import {
 } from 'react-native'
 import firebase from '../../firebaseConfig'
 import { ref, set, get } from 'firebase/database'
-import ColourMode from '@/constants/ColourMode'
-import SetTheme from '@/constants/ColourMode'
+import { DarkMode, themeContainerStyle, themeTextStyle } from '../DarkMode'
 
 interface UserDetails {
   firstName: string
@@ -64,16 +63,16 @@ export default function EditProfile({ userId }: { userId: string }) {
     <ScrollView>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.container}
+        style={[styles.container, themeContainerStyle]}
       >
-        <View style={styles.imageContainer}>
+        <View style={[styles.imageContainer, themeContainerStyle]}>
           <Image
             source={require('@/assets/images/SADCAT.png')} // Replace with your image path
             style={styles.image}
           />
         </View>
 
-        <View style={styles.sectionContainer}>
+        <View style={[styles.sectionContainer, themeContainerStyle]}>
           <Text style={styles.label}>First Name</Text>
           <TextInput
             value={firstName}
@@ -85,7 +84,7 @@ export default function EditProfile({ userId }: { userId: string }) {
           <View style={styles.separator} />
         </View>
 
-        <View style={styles.sectionContainer}>
+        <View style={[styles.sectionContainer, themeContainerStyle]}>
           <Text style={styles.label}>Email</Text>
           <TextInput
             value={email}
@@ -115,7 +114,7 @@ export default function EditProfile({ userId }: { userId: string }) {
           <Text style={styles.addButtonText}>Save Profile</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
-      <SetTheme />
+      <DarkMode />
     </ScrollView>
   )
 }

@@ -5,6 +5,7 @@ import ProfileBio from '@/components/Profile/Bio'
 import ProfilePicture from '@/components/Profile/ProfilePicture'
 import ProfileWardrobe from '@/components/Profile/Wardrobe'
 import React from 'react'
+import { DarkMode } from '@/components/DarkMode'
 
 export default function profilePage() {
   return (

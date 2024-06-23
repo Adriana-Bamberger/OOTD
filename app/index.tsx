@@ -20,12 +20,6 @@ import {
 const logo = require('../assets/images/ootd2.png')
 
 export default function App() {
-  const [isDark, setIsDark] = useState(false)
-
-  const themeTextStyle = !isDark ? styles.lightThemeText : styles.darkThemeText
-  const themeContainerStyle = !isDark
-    ? styles.lightContainer
-    : styles.darkContainer
   let [fontsLoaded] = useFonts({
     'TYPOGRAPH-PRO-Semi-Bold': require('../assets/fonts/TYPOGRAPH-PRO-Semi-Bold.ttf'),
   })
@@ -47,25 +41,18 @@ export default function App() {
   }
 
   return (
-    <View style={[themeContainerStyle, styles.container]}>
-      {isDark}
-      <View style={[styles.imageContainer, themeContainerStyle]}>
+    <View style={[styles.container]}>
+      <View style={[styles.imageContainer]}>
         {/* Use Animated.Text for the text that will be animated */}
-        <Animated.Text
-          style={[styles.text, themeTextStyle, { opacity: fadeAnim }]}
-        >
+        <Animated.Text style={[styles.text, { opacity: fadeAnim }]}>
           OOTD.
         </Animated.Text>
       </View>
-      <View style={[styles.footerContainer, themeContainerStyle]}>
+      <View style={styles.footerContainer}>
         <CustomButton label="LOGIN" theme="login" />
         <CustomButton label="SIGNUP " theme="temp" />
       </View>
       <StatusBar style="auto" />
-      <Switch
-        value={isDark}
-        onValueChange={(value) => setIsDark(value)}
-      ></Switch>
     </View>
   )
 }
