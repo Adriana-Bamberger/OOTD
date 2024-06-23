@@ -1,3 +1,4 @@
+// A small change for our end of week freeze
 import React, { useEffect, useRef } from 'react'
 import { StyleSheet, Text, View, Animated } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
