@@ -30,3 +30,15 @@ const database = getDatabase(app)
 const storage = getStorage(app)
 
 export default { database, storage, auth }
+
+
+// This is what was recomended from Adriana's FireBase Auth tut. --v
+// Initialize Firebase
+// let app;
+// if (firebase.apps.length === 0) {
+//   app = firebase.initializeApp(firebaseConfig);
+// } else {
+//   app = firebase.app()
+// }
+
+// const auth = firebase.auth()
