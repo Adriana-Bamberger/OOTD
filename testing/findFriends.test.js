@@ -4,6 +4,7 @@ import React from 'react'
 import { render, fireEvent } from 'react-test-renderer'
 import FindFriends from '@/components/Friends/findFriends'
 import getPathFromState from 'expo-router/build/fork/getPathFromState'
+import app from '../app/(tabs)/carousel'
 
 describe('<FindFriends />', () => {
   it('renders correctly', () => {
@@ -27,4 +28,8 @@ describe('<FindFriends />', () => {
     fireEvent.changeText(searchInput, 'E') // Should match Emma
     expect(getByText('Emma')).toBeDefined()
   })
+})
+
+it('Clicking shuffle should change the images', () => {
+  expect(getRandomImage(headwearImages).tobe(!0))
 })
